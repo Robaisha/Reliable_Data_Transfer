@@ -1,0 +1,14 @@
+Set up the UDP connection:
+Create a UDP socket and bind it to a local port. Then, create a remote socket by specifying the destination IP address and port number.
+
+Implement flow control:
+To implement flow control, you need to limit the amount of data sent by the sender to the receiver. This can be done by setting a maximum buffer size at the sender's end. The sender will send the buffer size value to the receiver. The receiver will check the buffer size value and if the buffer size is reached, the receiver will send an acknowledgment message back to the sender.
+
+Implement congestion control:
+To implement congestion control, you can use the sliding window technique. In this technique, the sender will divide the file into a number of packets and send them one by one. The receiver will send an acknowledgment message for each received packet. The sender will keep track of the acknowledgments and adjust the sending rate accordingly.
+
+Sending the file:
+The sender will divide the file into packets and send them one by one. Each packet will contain a header with a sequence number, checksum, and payload data. The sender will send the packet to the receiver and wait for an acknowledgment message. If the sender does not receive an acknowledgment message within a specified time, it will resend the packet.
+
+Receiving the file:
+The receiver will receive the packets and check their checksums to ensure that they are not corrupted. If a packet is corrupted, the receiver will request the sender to resend the packet. Once all the packets are received and in order, the receiver will assemble them into the original file.
